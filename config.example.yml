@@ -1,11 +1,11 @@
 issuer_common_name: Issuer CA
-ca_key_file: key.pem
+ca_key_file: ca_key.pem
 key_file: key.pem
 cert_file: cert.pem
 output:
   power.conf: |
     [Result]
-    EQUAL,{cert_signature},65537,trusted_root_modulus->{result}
+    EQUAL,{cert_signature},65537,[Trusted Root certificate modulus number]->{cert_hash}
 
 data:
   user_id: fd974345-6bfd-4227-9b92-96d49313d312

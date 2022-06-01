@@ -1,6 +1,22 @@
 # plugin-power helper
 
-A script that can generate signed data and use with [plugin-power](https://github.com/ja-netfilter/plugin-power)
+A script that can generate signed data and use with [plugin-power](https://github.com/ja-netfilter/plugin-power), [mirror](https://gitee.com/ja-netfilter/plugin-power).
+
+## 中文说明
+
+生成 plugin-power 可用的配置文件。
+
+使用方法：参考 `config.example.yml` 创建 `config.example.yml`，先运行 `cert.py` 生成证书可私钥，然后运行 `sign.py` 生成签名的数据（YAML 转换为 JSON 数据签名）。
+
+配置文件 `output` 为 文件名->文件内容的映射，文件内容可参考以下变量替换。
+
+配置文件 `data` 为需要签名的 JSON 数据。
+
+* `data_b64` 配置文件中 `data` 选项转换为 JSON，64 进制编码
+* `data_signature_b64` JSON 数据的签名，64 进制编码
+* `cert_b64` 用来签名的证书数据，DER格式，64 进制编码
+* `cert_hash` 证书的哈希摘要值（整数），用于生成最终证书的签名
+* `cert_signature` 证书的签名值（整数）
 
 ## Introduction
 
